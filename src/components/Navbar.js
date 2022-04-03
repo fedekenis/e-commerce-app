@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import logo from '../assets/e-commerce.png';
 import { ShoppingCart } from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,9 +38,11 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position="sticky" className={classes.appBar} style={{ background: '#f8e593' }}>
         <Toolbar>
+          <Link to='/'>
           <IconButton edge="start" className={classes.button} color="inherit" aria-label="menu">
             <img src={logo} alt="logo" className={classes.image}/>
           </IconButton>
+          </Link>
           <div className={classes.grow}/>
           <Typography variant="h6" color='textPrimary' component="p">
             Hello Guest
@@ -48,11 +51,13 @@ export default function Navbar() {
             <Button variant='outlined'>
                 <strong>Sign In</strong>    
             </Button>
-            <IconButton aria-label='show cart items' color='inherit'>
-                <Badge badgeContent={2} color="secondary">
-                    <ShoppingCart fontSize='large' color='primary'/>
-                </Badge>
-            </IconButton>
+            <Link to='checkout-page'>
+              <IconButton aria-label='show cart items' color='inherit'>
+                  <Badge badgeContent={2} color="secondary">
+                      <ShoppingCart fontSize='large' color='primary'/>
+                  </Badge>
+              </IconButton>
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
